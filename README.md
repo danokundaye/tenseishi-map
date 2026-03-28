@@ -19,7 +19,7 @@ Tenseishi is a massive fortified metropolis spanning 100–120km in radius — h
 
 ## Sectors
 
-| Sector | Codename | Terrain | Character |
+| Sector | Head | Terrain | Character |
 |--------|----------|---------|-----------|
 | Zero | — | Concentric rings on a central hill | Seat of government, elite district |
 | I | Ivi | Flat, wide boulevards, garden estates | Affluent, politically indifferent |
