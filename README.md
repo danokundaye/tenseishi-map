@@ -6,7 +6,7 @@ Tenseishi is a massive fortified metropolis spanning 100–120km in radius — h
 
 ## Live Site
 
-> Add your Vercel URL here after deployment.
+(https://tenseishi-map.vercel.app/)
 
 ## Features
 
