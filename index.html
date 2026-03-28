@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tenseishi — Fortified Metropolis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body class="min-h-screen">
+  <div class="grain"></div>
+
+  <header id="site-nav" class="sticky top-0 z-50 backdrop-blur-md" style="background:rgba(12,11,10,0.85);border-bottom:1px solid var(--color-border)"></header>
+
+  <main>
+    <!-- Hero -->
+    <section class="relative overflow-hidden py-16 md:py-24">
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0" style="background:radial-gradient(ellipse at 50% 30%, var(--color-accent-dim) 0%, transparent 60%)"></div>
+      </div>
+      <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+        <p class="text-xs tracking-[0.3em] uppercase mb-4" style="color:var(--color-accent);font-family:var(--font-display)">Shinobi World RPG</p>
+        <h1 class="text-4xl md:text-6xl font-semibold mb-4" style="font-family:var(--font-display);color:var(--color-text-primary)">Tenseishi</h1>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto" style="color:var(--color-text-secondary)">A fortified metropolis spanning 100–120km in radius. Humanity's last bastion in a world of irradiated wasteland.</p>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="max-w-5xl mx-auto px-6 pb-8">
+      <div class="flex flex-wrap gap-2 mb-6" id="overview-controls">
+        <button onclick="setLayer('all')" class="map-btn active" id="btn-all">All layers</button>
+        <button onclick="setLayer('underground')" class="map-btn" id="btn-underground">Underground</button>
+        <button onclick="setLayer('trade')" class="map-btn" id="btn-trade">Trade routes</button>
+        <button onclick="setLayer('security')" class="map-btn" id="btn-security">Security</button>
+        <span style="width:1px;background:var(--color-border);margin:0 4px"></span>
+        <button onclick="toggleDetails()" class="map-btn" id="btn-details">Landmarks</button>
+      </div>
+
+      <div class="card p-2 md:p-4">
+        <div id="map-container" class="relative w-full" style="aspect-ratio:1/1;"></div>
+      </div>
+
+      <!-- Legend -->
+      <div class="flex flex-wrap gap-x-6 gap-y-2 mt-4 text-xs" style="color:var(--color-text-muted)">
+        <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm" style="background:var(--color-s0)"></span>Sector Zero</span>
+        <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm" style="background:var(--color-s1)"></span>Sector I</span>
+        <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm" style="background:var(--color-s2)"></span>Sector II</span>
+        <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm" style="background:var(--color-s3)"></span>Sector III</span>
+        <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm" style="background:var(--color-river);opacity:0.6"></span>Rivers</span>
+        <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm" style="background:var(--color-danger)"></span>Gates</span>
+      </div>
+    </section>
+
+    <!-- Sector Cards -->
+    <section class="max-w-7xl mx-auto px-6 py-12">
+      <h2 class="section-title text-center mb-10">The Four Sectors</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <a href="/pages/sector-zero.html" class="card p-6 group block">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="sector-badge" style="background:var(--color-s0-dim);color:var(--color-s0)">Sector Zero</span>
+          </div>
+          <h3 class="text-lg mb-2 group-hover:text-[var(--color-accent)] transition-colors" style="font-family:var(--font-display)">The Central Core</h3>
+          <p class="text-sm" style="color:var(--color-text-secondary)">A 60km-diameter fortified circle housing the Kage's compound, military command, the Council of Elders, and Toven Inc. Organized in concentric rings around a central hill. Accessible only through three massive gates.</p>
+        </a>
+        <a href="/pages/sector-one.html" class="card p-6 group block">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="sector-badge" style="background:var(--color-s1-dim);color:var(--color-s1)">Sector I</span>
+          </div>
+          <h3 class="text-lg mb-2 group-hover:text-[var(--color-accent)] transition-colors" style="font-family:var(--font-display)">The Eastern Quarter</h3>
+          <p class="text-sm" style="color:var(--color-text-secondary)">The affluent district. Flat terrain with wide boulevards and garden estates. Home to the Senju and Uzumaki clans. Features elite training grounds, a high-end commercial district, and pristine Konoha-style architecture.</p>
+        </a>
+        <a href="/pages/sector-two.html" class="card p-6 group block">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="sector-badge" style="background:var(--color-s2-dim);color:var(--color-s2)">Sector II</span>
+          </div>
+          <h3 class="text-lg mb-2 group-hover:text-[var(--color-accent)] transition-colors" style="font-family:var(--font-display)">The Northern Quarter</h3>
+          <p class="text-sm" style="color:var(--color-text-secondary)">The balanced sector. A dense urban core centered on the twins' command hall and central bazaar, with residential neighborhoods spreading outward. Home to both the Hyūga and Uchiha clans.</p>
+        </a>
+        <a href="/pages/sector-three.html" class="card p-6 group block">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="sector-badge" style="background:var(--color-s3-dim);color:var(--color-s3)">Sector III</span>
+          </div>
+          <h3 class="text-lg mb-2 group-hover:text-[var(--color-accent)] transition-colors" style="font-family:var(--font-display)">The Western Quarter</h3>
+          <p class="text-sm" style="color:var(--color-text-secondary)">The most populated and economically disadvantaged sector. Built against the cliff walls of an ancient gorge, featuring three vertical layers: Cliffside Row, the Mid-Warrens, and the shadowy Deep Warrens below.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Quick Facts -->
+    <section class="max-w-7xl mx-auto px-6 py-12">
+      <hr class="divider">
+      <h2 class="section-title text-center mb-10">The Wasteland Beyond</h2>
+      <div class="prose-content max-w-3xl mx-auto text-center">
+        <p>Beyond the great walls lies the Badlands — endless post-nuclear devastation stretching to the horizon. Dotted with 20–25 desperate settlements connected by dangerous trade routes, the wasteland is a constant reminder of why Tenseishi's walls must hold.</p>
+        <p>Trade caravans brave irradiated terrain, mutated wildlife, and bandit raids to bring resources the city cannot produce within its walls. Every settlement clings to existence, dependent on Tenseishi as much as the city depends on them.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="border-t" style="border-color:var(--color-border)"></footer>
+
+  <style>
+    .map-btn {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border: 1px solid var(--color-border);
+      border-radius: 3px;
+      background: transparent;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .map-btn:hover { border-color: var(--color-border-hover); color: var(--color-text-secondary); }
+    .map-btn.active { border-color: var(--color-accent-dim); color: var(--color-accent); background: rgba(196,149,106,0.06); }
+  </style>
+
+  <script type="module">
+    import { initNav, initFooter } from '/src/nav.js';
+    import '/src/style.css';
+    initNav('map');
+    initFooter();
+  </script>
+  <script src="/src/map.js" type="module"></script>
+</body>
+</html>

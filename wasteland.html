@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>The Badlands — Tenseishi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module">
+    import { sectorPage, locationCard, statRow } from './src/sector-template.js'
+    document.getElementById('app').innerHTML = sectorPage({
+      id: 'The Badlands',
+      navId: 'wasteland',
+      title: 'The Great Wasteland',
+      subtitle: 'Beyond the walls lies endless post-nuclear devastation — an irradiated continent dotted with desperate settlements connected by dangerous trade routes. The wasteland is a reminder of what was lost and a constant threat to what remains.',
+      color: 'var(--color-wasteland)',
+      colorBg: 'var(--color-wasteland-bg)',
+      sections: [
+        {
+          title: 'Overview',
+          content: `
+            <div class="p-4 rounded-lg bg-parchment-light border border-ink-faint/15 mb-6">
+              ${statRow('Terrain', 'Irradiated wasteland')}
+              ${statRow('Known settlements', '8 (estimated 20-25 total)')}
+              ${statRow('Conditions', 'Extreme — radiation, hostile fauna, bandits')}
+              ${statRow('Connection to Tenseishi', 'Trade routes to outer wall')}
+            </div>
+            <p class="text-sm text-ink-muted leading-relaxed">The wasteland stretches in every direction beyond Tenseishi's walls — the result of a cataclysmic event that transformed the surrounding continent. An estimated 20-25 settlements cling to existence out here, connected by trade routes that are as dangerous as the destinations are desperate. For most of Tenseishi's population, the wasteland is an abstraction — a story told to justify the walls. For those who trade with the settlements or patrol the outer perimeter, it is terrifyingly real.</p>
+          `
+        },
+        {
+          title: 'Known settlements',
+          content: `
+            ${locationCard('Ashfall Camp', 'A small encampment to the northwest. Population approximately 200. Named for the persistent volcanic ash that drifts from geological vents in the area. Trades scavenged materials and rare minerals with Tenseishi.', ['~200 pop'])}
+            ${locationCard('Iron Ridge', 'A mining settlement to the northeast. Population approximately 450. Built around exposed iron deposits — one of the few reliable sources of raw metal outside the city walls. Strategically valuable.', ['~450 pop'])}
+            ${locationCard('Dusthaven', 'An eastern settlement. Population approximately 300. A waypoint for travelers and traders moving between the more distant settlements. Known for its relative stability compared to other wasteland outposts.', ['~300 pop'])}
+            ${locationCard('Boneyard Post', 'A southwestern settlement. Population approximately 150. Built among the ruins of a pre-cataclysm structure. The smallest and most precarious of the known settlements — survival here is measured in seasons, not years.', ['~150 pop'])}
+            ${locationCard('Crater Town', 'The largest known settlement, due south. Population approximately 600. Built in and around a massive impact crater that provides natural shelter from radiation winds. The closest thing to a functional community outside Tenseishi.', ['~600 pop'])}
+            ${locationCard('Mirage Well', 'A western settlement. Population approximately 100. Named for a water source that appears and disappears with the seasons. Survival depends entirely on the well — when it dries, the settlement empties.', ['~100 pop'])}
+            ${locationCard('Scorch End', 'A southeastern settlement. Population approximately 250. Located at the edge of a radiation hot zone. Residents have developed unusual tolerances — and unusual health problems. Trades in salvage and information.', ['~250 pop'])}
+            ${locationCard('Radwind Station', 'An eastern settlement. Population approximately 350. A former monitoring outpost from the pre-cataclysm era, repurposed into a settlement. Some of the old equipment still functions, making it a source of pre-war technology and knowledge.', ['~350 pop'])}
+          `
+        },
+        {
+          title: 'Trade routes',
+          content: `<p class="text-sm text-ink-muted leading-relaxed">Trade routes connect the settlements to each other and to Tenseishi's outer wall. These paths are not roads — they are known-safe corridors through irradiated terrain, marked by cairns, dead trees, and the occasional burned-out vehicle from the old world. Travel between settlements takes days. Caravans move in groups for protection against radiation storms, hostile wildlife, and bandits. Trade goods flow both ways: Tenseishi exports manufactured goods and food; settlements export raw materials, salvage, and intelligence about wasteland conditions.</p>`
+        },
+        {
+          title: 'Hazards',
+          content: `<p class="text-sm text-ink-muted leading-relaxed">The wasteland is hostile to human life in every way. Radiation levels vary from manageable to lethal depending on location and weather patterns. Radiation storms can roll in with little warning, forcing travelers to shelter or die. Wildlife has mutated — some creatures are merely dangerous, others are genuinely nightmarish. Bandit groups prey on caravans and isolated settlements. And beneath it all, the land itself is unstable — sinkholes, toxic water sources, and geological vents make navigation a constant risk even on established routes.</p>`
+        }
+      ]
+    })
+  </script>
+</body>
+</html>

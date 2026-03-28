@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Sector 1 — Tenseishi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module">
+    import { sectorPage, locationCard, statRow } from './src/sector-template.js'
+    document.getElementById('app').innerHTML = sectorPage({
+      id: 'Sector 1 — Ivi',
+      navId: 'sector-one',
+      title: 'The Affluent Eastern District',
+      subtitle: 'The wealthiest outer sector, defined by wide boulevards, garden estates, and pristine Konoha-style architecture. Home to the Senju and Uzumaki clans. Politically indifferent toward Sector Zero — comfortable enough not to engage in city politics.',
+      color: 'var(--color-sector-one)',
+      colorBg: 'var(--color-sector-one-bg)',
+      sections: [
+        {
+          title: 'Overview',
+          content: `
+            <div class="grid sm:grid-cols-2 gap-4 mb-6">
+              <div class="p-4 rounded-lg bg-parchment-light border border-ink-faint/15">
+                ${statRow('Terrain', 'Flat and open')}
+                ${statRow('Architecture', 'Pristine Konoha-style')}
+                ${statRow('Streets', 'Wide boulevards, garden estates')}
+                ${statRow('Position', 'Eastern arc')}
+              </div>
+              <div class="p-4 rounded-lg bg-parchment-light border border-ink-faint/15">
+                ${statRow('Commander', 'Uzumaki Uzōhi (Uzo)')}
+                ${statRow('Commander rank', 'NPC — elite combatant')}
+                ${statRow('Leadership style', 'Strict, disciplined')}
+                ${statRow('Political stance', 'Indifferent to Sector Zero')}
+              </div>
+            </div>
+            <p class="text-sm text-ink-muted leading-relaxed">Sector 1's wealth comes from a mix of old money (established clans with inherited wealth), commerce and trade (merchant families and banking), and skilled professionals (top shinobi, artisans, and scholars). The sector's population is comfortable and politically disengaged — they have the resources to influence city politics but choose not to. Commander Uzo maintains strict discipline despite this relaxed atmosphere, creating a notable contrast between leader and populace.</p>
+          `
+        },
+        {
+          title: 'Key locations',
+          content: `
+            ${locationCard('Elite training grounds', 'Premier shinobi training facilities in the city. Well-maintained dojos, sparring arenas, and advanced equipment. Open to sector residents with demonstrated ability. Produces some of the most technically refined shinobi in Tenseishi.')}
+            ${locationCard('High-end commercial district', 'Upscale shops, restaurants, and entertainment venues catering to the sector\'s wealthy population. Quality goods, imported materials, and refined services. The economic heart of the sector, though driven more by consumption than production.')}
+            ${locationCard('Senju clan estate', 'The most affluent clan in Sector 1. Their compound includes private grounds, training dojos, and extensive residential areas. The Senju maintain a close relationship with Commander Uzo and the Uzumaki clan — an alliance that represents the sector\'s combined military and economic strength.', ['most affluent'])}
+            ${locationCard('Uzumaki clan estate', 'The second most affluent clan. Commander Uzo leads from here. The Uzumaki retain their clan heritage — mastery of sealing jutsu and natural longevity — though large chakra reserves must be individually earned through training rather than inherited. Their compound rivals the Senju in size and quality.', ['commander\'s clan'])}
+            ${locationCard('Garden boulevards', 'Wide, tree-lined streets connecting the major estates and facilities. The most visually striking infrastructure in any outer sector — clean stonework, maintained landscaping, and open sightlines. A stark contrast to Sector 3\'s narrow, chaotic warrens.')}
+          `
+        },
+        {
+          title: 'Clan landscape',
+          content: `
+            <p class="text-sm text-ink-muted leading-relaxed mb-4">Sector 1 is anchored by two major clans with a historic alliance: the Senju (most affluent) and the Uzumaki (second most affluent, providing the sector commander). Their close relationship means Sector 1's military authority and economic power are aligned through personal bonds, not just institutional structures. Additional residents include Lee, Nara, and Shirogane clan members.</p>
+            <p class="text-sm text-ink-muted leading-relaxed">The sector harbors undisclosed secrets that have not yet been fully defined — beneath the pristine surface, not everything is as clean as it appears.</p>
+          `
+        },
+        {
+          title: 'Strategic notes',
+          content: `<p class="text-sm text-ink-muted leading-relaxed">Sector 1 is the sector nobody wants to fight. Commander Uzo is one of the strongest combatants in the city. The Senju bring deep resources. And the sector's indifference to politics means they have no enemies — no one has a grievance against a district that simply minds its own business. If threatened, the combined response of Uzo's combat ability and Senju wealth would be formidable.</p>`
+        }
+      ]
+    })
+  </script>
+</body>
+</html>

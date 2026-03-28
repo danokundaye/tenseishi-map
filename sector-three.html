@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Sector 3 — Tenseishi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module">
+    import { sectorPage, locationCard, statRow } from './src/sector-template.js'
+    document.getElementById('app').innerHTML = sectorPage({
+      id: 'Sector 3 — X',
+      navId: 'sector-three',
+      title: 'The Western Quarter',
+      subtitle: 'The most densely populated and economically disadvantaged sector in Tenseishi. Built against the dramatic cliff walls of an ancient dried river gorge, the sector exists across three vertical layers — from the elevated Cliffside Row to the shadowy Deep Warrens beneath the surface.',
+      color: 'var(--color-sector-three)',
+      colorBg: 'var(--color-sector-three-bg)',
+      sections: [
+        {
+          title: 'Overview',
+          content: `
+            <div class="grid sm:grid-cols-2 gap-4 mb-6">
+              <div class="p-4 rounded-lg bg-parchment-light border border-ink-faint/15">
+                ${statRow('Terrain', 'Ancient gorge along western edge')}
+                ${statRow('Layout', 'Three vertical layers')}
+                ${statRow('Streets', 'Narrow, winding, organic growth')}
+                ${statRow('Population', 'Highest density in the city')}
+              </div>
+              <div class="p-4 rounded-lg bg-parchment-light border border-ink-faint/15">
+                ${statRow('Commander', 'Raikage X ("Unlawful")')}
+                ${statRow('Commander type', 'Player character')}
+                ${statRow('Clan landscape', 'Multiple small groups, no dominant clan')}
+                ${statRow('Economy', 'Poorest sector')}
+              </div>
+            </div>
+            <p class="text-sm text-ink-muted leading-relaxed">Sector 3 rose from the ruins of Tenseishi's former industrial heart. As economics shifted, the district became a haven for the desperate and the cunning. The ancient gorge along its western edge defines the sector's identity — everything is built in relation to the cliff. Higher elevation means more authority and better conditions. Lower means more shadow, more freedom, and more danger.</p>
+          `
+        },
+        {
+          title: 'Cliffside Row — The high ground',
+          content: `
+            ${locationCard('Commander\'s hall', 'Raikage X operates from here — a structure partially carved into the cliff face and partially built on a reinforced ledge. The hall overlooks the entire sector, giving the commander a literal high ground. Administrative offices, war rooms, and communication stations are housed within.', ['command'])}
+            ${locationCard('Shinobi barracks', 'Military housing and operational facilities for the sector\'s active shinobi force. Built into the cliff alongside the commander\'s hall. Proximity to command ensures rapid deployment. The barracks are spartan compared to Sector 1 or 2\'s training facilities — functional, not prestigious.')}
+            ${locationCard('Skilled craftsmen workshops', 'The cliff\'s ledges and carved chambers house weaponsmiths, armorers, seal crafters, and other artisans whose skills demand respect even in the poorest sector. These craftsmen occupy a middle ground — not powerful enough for the elite, too valuable to be left to the chaos below.')}
+            <p class="text-sm text-ink-muted leading-relaxed mt-4">Cliffside Row is a mix of structures carved directly into the rock face and buildings constructed on natural ledges and reinforced platforms jutting from the cliff. The architecture is weathered but solid — built to last generations.</p>
+          `
+        },
+        {
+          title: 'The cliff base — Clan territory',
+          content: `
+            <p class="text-sm text-ink-muted leading-relaxed mb-4">The smaller clans and groups of Sector 3 cluster their compounds near the base of the cliff — close to Cliffside Row, close to power, trying to stay relevant. The Raikage clan (descended from the historic Raikage lineage), the Chinoike clan (bearers of the Ketsuryūgan bloodline), the Masamune, and other small families maintain their compounds here. No single clan dominates — the landscape is fragmented, with influence earned through capability rather than wealth or numbers.</p>
+          `
+        },
+        {
+          title: 'Mid-Warrens — The living sector',
+          content: `
+            ${locationCard('Central gathering plaza', 'The one open space in an otherwise claustrophobic district. Where the whole community converges — announcements, trade, news, and the occasional public confrontation. The plaza is the sector\'s pulse. If something is happening in Sector 3, it\'ll pass through here.')}
+            ${locationCard('Open-air street markets', 'Sprawling market streets selling food, weapons, tools, clothing, and goods of wildly varying quality. Narrow alleys between stalls create a labyrinth familiar to locals and disorienting to outsiders. Prices are lower than any other sector — so is the guarantee of quality.')}
+            ${locationCard('Tea-houses and gambling dens', 'Social hubs where information flows as freely as drink. Some are legitimate establishments with decades of history. Others are fronts, or at least conveniently blind to what happens in their back rooms. Gambling ranges from casual dice games to high-stakes wagers.')}
+            ${locationCard('Blacksmith and craftsmen alleys', 'Concentrated stretches of forges, leather workers, and tool makers operating at ground level. The heat and noise define these streets. Quality varies — some smiths rival Cliffside Row artisans, others produce bulk goods for the markets.')}
+            <p class="text-sm text-ink-muted leading-relaxed mt-4">The Mid-Warrens spread outward from the cliff base across the sector's ground level. Streets are narrow, winding, and organic — the result of generations of unplanned growth. Buildings lean, alleys twist, and the further from the cliff you get, the less clan influence exists and the more you're in pure civilian territory.</p>
+          `
+        },
+        {
+          title: 'Deep Warrens — The undercity',
+          content: `
+            ${locationCard('Black market hub', 'Weapons, intelligence, and forbidden jutsu scrolls change hands in carved chambers and repurposed storage tunnels. No official oversight. Prices are set by supply, demand, and the seller\'s willingness to enforce their terms. The market serves customers from across the city — including those who arrive through the secret tunnels.', ['hidden'])}
+            ${locationCard('Underground fight pit', 'Real-stakes combat with gambling. Matches range from proving grounds for ambitious shinobi to desperate bouts for money. Occasional deaths occur — bodies are disposed of through the tunnel network. Injuries are treated by unlicensed medics who never surface. The pit draws spectators and money from every sector.', ['hidden'])}
+            ${locationCard('Smuggling network', 'Routes that bypass the official sector checkpoint system entirely. Secret tunnels — remnants of the ancient aqueduct infrastructure — connect to Sectors 1 and 2. Knowledge of these tunnels is limited to the criminals and customers who use them. An unspoken code governs access: you use the tunnels, you keep quiet, or you disappear.', ['hidden'])}
+            <p class="text-sm text-ink-muted leading-relaxed mt-4">The Deep Warrens occupy the disused ancient aqueducts, storage tunnels, and carved dwellings beneath the Mid-Warrens. Access points are scattered throughout the sector — hidden doors in buildings and alleys, old aqueduct stairways, and cave openings in the gorge face itself. No single authority controls this space. The sector commander is currently unaware of the full scope of operations here.</p>
+          `
+        },
+        {
+          title: 'The gorge',
+          content: `<p class="text-sm text-ink-muted leading-relaxed">The ancient dried river gorge runs along Sector 3's western edge — a dramatic geological feature with sheer cliff walls that define the sector's identity. The gorge predates Tenseishi itself, carved over millennia by a river that no longer flows. Its walls provided natural fortification and building material for the sector's founders. Today, the cliff face is honeycombed with carved dwellings, workshops, and tunnels — some official, many forgotten, and a few deliberately hidden.</p>`
+        },
+        {
+          title: 'Strategic notes',
+          content: `<p class="text-sm text-ink-muted leading-relaxed">Sector 3 is a paradox: the weakest sector on paper and the most dangerous in practice. Its official military strength is modest, its economy is poor, and its commander is a player character still learning the full scope of his domain. But the Deep Warrens represent an unregulated network that connects to every other sector, a black market economy that operates outside all official channels, and a population hardened by disadvantage. If the secrets beneath this sector ever surface — the tunnels, the fight pit, the smuggling routes — the political consequences would ripple across all of Tenseishi.</p>`
+        }
+      ]
+    })
+  </script>
+</body>
+</html>

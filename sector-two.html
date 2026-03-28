@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Sector 2 — Tenseishi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module">
+    import { sectorPage, locationCard, statRow } from './src/sector-template.js'
+    document.getElementById('app').innerHTML = sectorPage({
+      id: 'Sector 2 — Firen',
+      navId: 'sector-two',
+      title: 'The Balanced Northern Sector',
+      subtitle: 'A dense urban core surrounded by quieter outskirts. Home to both the Hyūga and Uchiha clans, whose active rivalry simmers beneath the sector\'s outwardly stable surface. Commanded by twin leaders who alternate fluidly.',
+      color: 'var(--color-sector-two)',
+      colorBg: 'var(--color-sector-two-bg)',
+      sections: [
+        {
+          title: 'Overview',
+          content: `
+            <div class="grid sm:grid-cols-2 gap-4 mb-6">
+              <div class="p-4 rounded-lg bg-parchment-light border border-ink-faint/15">
+                ${statRow('Terrain', 'Dense urban core, quiet outskirts')}
+                ${statRow('Layout', 'Organic neighborhoods, no hard borders')}
+                ${statRow('Economy', 'Trade, small manufacturing, services')}
+                ${statRow('Position', 'Northern arc')}
+              </div>
+              <div class="p-4 rounded-lg bg-parchment-light border border-ink-faint/15">
+                ${statRow('Commanders', 'Minkazu & Winkazu (twins)')}
+                ${statRow('Commander abilities', 'Sage transformation (Jūgo-type)')}
+                ${statRow('Leadership style', 'Fluid alternation')}
+                ${statRow('Notable', 'Highest shinobi power concentration')}
+              </div>
+            </div>
+            <p class="text-sm text-ink-muted leading-relaxed">Sector 2 is the most deceptively complex district in Tenseishi. On the surface it's the "balanced" sector — moderate population, mixed economy, stable communities. Underneath, an active clan rivalry between the Hyūga and Uchiha plays out at the shinobi level while civilians live their lives largely unaware of or unconcerned by clan politics. Residents live wherever they choose regardless of clan territory.</p>
+          `
+        },
+        {
+          title: 'Key locations',
+          content: `
+            ${locationCard('Twins\' command hall', 'Centrally positioned in the urban core. The administrative and military heart of the sector. Minkazu and Winkazu operate from here in fluid alternation — whoever is best positioned handles what needs handling. Shinobi barracks and training facilities are located nearby for practical access.', ['central'])}
+            ${locationCard('Central bazaar', 'The commercial hub of Sector 2, sprawling outward from the command hall. A dense marketplace of food stalls, weapon shops, tool merchants, textile vendors, and everyday goods. Small-scale manufacturers maintain workshops near or behind their storefronts. Busy during the day, quieter at night.', ['commerce'])}
+            ${locationCard('Hyūga clan estate', 'Located in the outer areas of the sector. A large compound with private training dojos, meeting halls, and residential buildings. Home to the sector\'s most powerful individual combatants. The estate reflects the clan\'s current ascendancy — well-maintained and expanding.', ['outer area'])}
+            ${locationCard('Uchiha clan estate', 'Positioned on the opposite side of the sector from the Hyūga estate. A proud compound with its own dojos and grounds, though the clan currently faces a power imbalance against the Hyūga. The estate carries the weight of history — Akashi, now the Kage\'s right hand, once led this clan from Sector 2.', ['outer area'])}
+            ${locationCard('Residential outskirts', 'As density decreases from the urban core, quieter residential neighborhoods emerge — civilian housing, small clan families, retired shinobi. The transition from core to outskirts is gradual with no hard boundaries. A neutral buffer zone naturally exists between the two clan territories, populated by civilians who don\'t pick sides.')}
+          `
+        },
+        {
+          title: 'The Hyūga-Uchiha rivalry',
+          content: `
+            <p class="text-sm text-ink-muted leading-relaxed mb-4">An old tension reignited by recent events. The Hyūga have risen to become the strongest clan in Sector 2, driven by individual powerhouses rather than clan-wide superiority. The Uchiha, once the dominant force, find themselves outmatched in raw combat power despite maintaining strong numbers and political connections (their most accomplished clansman, Akashi, holds the second-highest position in the city but stays out of sector politics).</p>
+            <p class="text-sm text-ink-muted leading-relaxed mb-4">The rivalry was inflamed when Okarun — an adopted outsider within the Hyūga clan — defeated Uchiha Saito, the assistant clan leader, in a one-sided match with zero effort. The aftermath was arguably more damaging: Okarun and Zoro offered Saito a fragment of gelel stone to enhance his abilities, a gesture perceived by some as charity to a clan that could no longer compete on its own.</p>
+            <p class="text-sm text-ink-muted leading-relaxed">The rivalry has not yet escalated enough to require intervention from the twin commanders. It remains a clan-level concern — civilians live wherever they want and don't organize along clan lines.</p>
+          `
+        },
+        {
+          title: 'Strategic notes',
+          content: `<p class="text-sm text-ink-muted leading-relaxed">Sector 2 holds the highest concentration of raw shinobi power of any sector in the city. This makes it simultaneously the most stable (no external threat could easily challenge it) and the most dangerous (if internal rivalries ever boil over, the collateral would be catastrophic). The twin commanders sit atop this powder keg with pragmatic fluidity, managing by presence rather than force.</p>`
+        }
+      ]
+    })
+  </script>
+</body>
+</html>

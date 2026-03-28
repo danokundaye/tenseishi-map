@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Sector Zero — Tenseishi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module">
+    import { sectorPage, locationCard, statRow } from './src/sector-template.js'
+    document.getElementById('app').innerHTML = sectorPage({
+      id: 'Sector Zero',
+      navId: 'sector-zero',
+      title: 'The Central Core',
+      subtitle: 'A 60km diameter circular district at the heart of Tenseishi, housing the elite, the seat of government, and the city\'s most powerful institutions. Heavily fortified and accessible only through three massive gates.',
+      color: 'var(--color-sector-zero)',
+      colorBg: 'var(--color-sector-zero-bg)',
+      sections: [
+        {
+          title: 'Overview',
+          content: `
+            <div class="grid sm:grid-cols-2 gap-4 mb-6">
+              <div class="p-4 rounded-lg bg-parchment-light border border-ink-faint/15">
+                ${statRow('Diameter', '60km')}
+                ${statRow('Layout', 'Concentric rings')}
+                ${statRow('Access', '3 fortified gates')}
+                ${statRow('Terrain', 'Central hill (Kage compound)')}
+              </div>
+              <div class="p-4 rounded-lg bg-parchment-light border border-ink-faint/15">
+                ${statRow('Population', 'Elite + attached civilian staff')}
+                ${statRow('Economy', 'Government, industrial, corporate')}
+                ${statRow('Governance', 'Kage (supreme authority)')}
+                ${statRow('Security', 'Highest in the city')}
+              </div>
+            </div>
+            <p class="text-sm text-ink-muted leading-relaxed">Sector Zero is organized in three concentric rings radiating from the Kage's elevated compound at the center. Each ring represents a layer of access and privilege, with security tightening as you move inward. Civilians who live here are attached as staff to elite compounds — there is no independent civilian district.</p>
+          `
+        },
+        {
+          title: 'The three rings',
+          content: `
+            ${locationCard('Inner ring — Government core', 'The Kage\'s compound sits atop an elevated hill at the exact center, overlooking the entire sector. Surrounding the hill: Akashi\'s military command headquarters, the ANBU-equivalent operations center, the Council of Elders\' chambers, and research facilities. This ring is the nerve center of Tenseishi — every major decision flows from here.', ['restricted'])}
+            ${locationCard('Middle ring — Elite residential', 'Wealthy clan estates, noble compounds, and the private residences of Tenseishi\'s most powerful families. Each compound includes staff housing for attached civilian workers. Toven Inc maintains a private estate here in addition to its corporate headquarters in the inner ring.', ['guarded'])}
+            ${locationCard('Outer ring — Industrial & commercial', 'Factories, stadiums, logistics infrastructure, and corporate facilities line the sector\'s edge near the three gates. This is what visitors see first upon entry — the productive face of Sector Zero. Toven Inc operates multiple manufacturing facilities here including oil processing and furniture production.', ['accessible'])}
+          `
+        },
+        {
+          title: 'Key institutions',
+          content: `
+            ${locationCard('The Kage\'s compound', 'Elevated on the central hill, visible from every point in the sector. The seat of supreme authority in Tenseishi. Houses the Kage\'s residence, war council chambers, and the most secure communications infrastructure in the city.')}
+            ${locationCard('Military command (Akashi\'s HQ)', 'Uchiha Akashi — the Kage\'s right hand and former youngest Sector 2 commander — oversees all military operations from here. All three sector commanders report to him. Houses strategic planning, intelligence analysis, and the ANBU-equivalent\'s operational command.')}
+            ${locationCard('Council of Elders chambers', 'Meeting halls for the council — an oligarchy of older, influential figures with varying spheres of power within Sector Zero. Key member Kal Toven (Toven Inc) holds significant economic leverage. Select members share knowledge of the city\'s most closely guarded secrets.')}
+            ${locationCard('Toven Inc — Headquarters', 'The corporate headquarters of Tenseishi\'s largest company, headed by Kal Toven, the richest man in the city. Operations span all four sectors but are concentrated here. Toven sits on the Council of Elders and maintains a genuine partnership with the Kage.', ['corporate'])}
+            ${locationCard('Hidden archives', 'A concealed research facility and forbidden knowledge vault whose location is known only to the Kage, Akashi, Kal Toven, and select Council of Elders members. Contains forbidden jutsu, records about the cataclysm that created the wasteland, and experimental weapons technology. Additional contents remain classified.', ['classified'])}
+          `
+        },
+        {
+          title: 'Civilian life',
+          content: `<p class="text-sm text-ink-muted leading-relaxed">There is no independent civilian community in Sector Zero. The small civilian population consists entirely of staff attached to elite compounds — household workers, groundskeepers, administrative assistants, and service personnel. They live well compared to outer sector populations but have no independent political voice, no community gathering spaces, and no economic independence. Losing a position means returning through the gates to the outer sectors. It is a feudal arrangement dressed in the aesthetics of privilege.</p>`
+        },
+        {
+          title: 'Access & security',
+          content: `<p class="text-sm text-ink-muted leading-relaxed">Three massive gates are positioned at equal intervals around the sector perimeter, each sitting 1.5km from the junction points where inter-sector passages branch. The gates are the only sanctioned entry points. Each ring within the sector has its own access controls — the outer ring is accessible to authorized visitors, the middle ring requires specific clearance, and the inner ring is restricted to government and military personnel. The Kage's hill has its own dedicated security detail.</p>`
+        }
+      ]
+    })
+  </script>
+</body>
+</html>

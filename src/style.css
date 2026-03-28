@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Cinzel", serif;
+  --font-body: "Barlow", sans-serif;
+
+  --color-bg-primary: #0c0b0a;
+  --color-bg-secondary: #161412;
+  --color-bg-tertiary: #1e1b18;
+  --color-bg-card: #1a1714;
+
+  --color-text-primary: #e8e0d4;
+  --color-text-secondary: #a69c8e;
+  --color-text-muted: #6b6158;
+
+  --color-border: #2e2922;
+  --color-border-hover: #4a4236;
+
+  --color-accent: #c4956a;
+  --color-accent-dim: #8a6844;
+
+  --color-s0: #4a7c59;
+  --color-s0-dim: #2d4d36;
+  --color-s1: #4a7cb5;
+  --color-s1-dim: #2d4d72;
+  --color-s2: #b5944a;
+  --color-s2-dim: #72602d;
+  --color-s3: #b55a3a;
+  --color-s3-dim: #723828;
+
+  --color-wasteland: #3d3630;
+  --color-danger: #a53030;
+  --color-river: #3b6d9a;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: 0.04em;
+  }
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-bg-primary);
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-sm tracking-wider uppercase transition-colors duration-200;
+    color: var(--color-text-secondary);
+    font-family: var(--font-display);
+  }
+  .nav-link:hover { color: var(--color-accent); }
+  .nav-link.active {
+    color: var(--color-accent);
+    border-bottom: 1px solid var(--color-accent);
+  }
+  .card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: var(--color-border-hover); }
+  .sector-badge {
+    @apply inline-block px-3 py-1 text-xs tracking-widest uppercase rounded-sm;
+    font-family: var(--font-display);
+  }
+  .section-title {
+    @apply text-2xl mb-6;
+    font-family: var(--font-display);
+    color: var(--color-text-primary);
+  }
+  .prose-content {
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+  }
+  .prose-content p { margin-bottom: 1rem; }
+  .divider {
+    border: none; height: 1px;
+    background: var(--color-border);
+    margin: 2rem 0;
+  }
+  .grain {
+    position: fixed; inset: 0;
+    pointer-events: none; z-index: 9999; opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
